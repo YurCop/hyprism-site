@@ -70,7 +70,7 @@ async function fetchDownloads() {
     let links = {
         windows: baseUrl + filenames.windows,
         mac: baseUrl + filenames.mac,
-        linux: baseUrl + filenames.linuxAppImage // По умолчанию AppImage
+        linux: baseUrl + filenames.linuxAppImage // Default AppImage
     };
 
     try {
@@ -82,7 +82,7 @@ async function fetchDownloads() {
         const releases = await response.json();
         if (!releases || releases.length === 0) throw new Error('No releases found');
         
-        const latestRelease = releases[0]; // Берем самый свежий релиз (даже если это pre-release)
+        const latestRelease = releases[0]; // We take the latest release (even if it is a preliminary version)
         const assets = latestRelease.assets;
         
         // Windows
